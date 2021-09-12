@@ -1,0 +1,20 @@
+# -*- mode: yaml -*-
+# The coding style for automatic reformatting using clang-format.
+# Documentation on options:
+#   http://clang.llvm.org/docs/ClangFormatStyleOptions.html
+# Inspect the configs:
+#   clang-format --dump-config | grep ...
+BasedOnStyle: Chromium
+
+# Disable trailing comment alignment so that git-diff views are not messed
+# up by re-aligned comments on lines the author did not touch.
+AlignTrailingComments: false
+
+# Do not break string literals, so as to make it easier to search in code
+# for messages surfaced to user.
+BreakStringLiterals: false
+
+---
+Language: JavaScript  # Also TypeScript: https://reviews.llvm.org/D8190
+CommentPragmas: .*\@.*
+JavaScriptQuotes: Single

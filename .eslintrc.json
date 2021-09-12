@@ -1,0 +1,72 @@
+{
+  "root": true,
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "impliedStrict": true
+    }
+  },
+  "plugins": [
+    "@typescript-eslint",
+    "jsdoc",
+    "header"
+  ],
+  "rules": {
+    "eqeqeq": "warn",
+    "guard-for-in": "warn",
+    "no-empty": ["error", { "allowEmptyCatch": true }],
+    "jsdoc/no-types": "warn",
+    "header/header": [
+			"warn",
+			"line",
+			[
+				{"pattern": "^ Copyright \\(c\\) \\d{4} Leedehai\\. All rights reserved\\.$"},
+				{"pattern": "^ Use of this source (code )?is governed.+LICENSE\\.txt.*"}
+			]
+		],
+    "@typescript-eslint/member-delimiter-style": [
+      "warn",
+      {
+        "multiline": {
+          "delimiter": "semi"
+        },
+        "singleline": {
+          "delimiter": "semi"
+        },
+        "overrides": {
+          "typeLiteral": {
+            "multiline": {
+                "delimiter": "comma",
+                "requireLast": true
+            }
+          }
+        }
+      }
+    ],
+    "@typescript-eslint/naming-convention": [
+			"warn",
+			{
+				"selector": "typeLike",
+				"format": ["PascalCase"]
+			},
+      {
+				"selector": "enumMember",
+				"format": ["UPPER_CASE"]
+			}
+		]
+  },
+  "overrides": [
+		{
+			"files": ["*.js"],
+			"rules": {
+				"jsdoc/no-types": "off"
+			}
+		}
+  ]
+}
