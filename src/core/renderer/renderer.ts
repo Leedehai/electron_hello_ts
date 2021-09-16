@@ -3,7 +3,7 @@
 // -----
 // "Client-side" script requested from index.html.
 
-import 'styles/styles.css';
+import 'core/renderer/styles.css';
 
 document.addEventListener('DOMContentLoaded', () => {
   const elementWindowId = document.querySelector<HTMLElement>('#window-id');

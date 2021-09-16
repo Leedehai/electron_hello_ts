@@ -10,7 +10,7 @@ module.exports = [
     mode: 'development',
     target: 'electron-main',
     context: __dirname,
-    entry: './src/main/main.ts',
+    entry: './src/core/main/main.ts',
     module: {
       rules: [
         {
@@ -18,7 +18,7 @@ module.exports = [
           include: /src/,
           use: [{
             loader: 'ts-loader',
-            options: {configFile: __dirname + '/tsconfig.json'},
+            options: {configFile: __dirname + '/src/tsconfig.json'},
           }]
         },
       ],
@@ -27,11 +27,11 @@ module.exports = [
       modules: [__dirname, 'node_modules'],
       extensions: ['.ts', '.js', '.json'],
       plugins: [
-        new TsconfigPathsPlugin({configFile: __dirname + '/tsconfig.json'}),
+        new TsconfigPathsPlugin({configFile: __dirname + '/src/tsconfig.json'}),
       ],
     },
     output: {
-      path: __dirname + '/out/src/main',
+      path: __dirname + '/out/main',
       filename: 'main.bundled.js',
     },
   },
@@ -39,7 +39,7 @@ module.exports = [
     mode: 'development',
     target: 'electron-preload',
     context: __dirname,
-    entry: './src/renderer/preload.ts',
+    entry: './src/core/renderer/preload.ts',
     module: {
       rules: [
         {
@@ -47,7 +47,7 @@ module.exports = [
           include: /src/,
           use: [{
             loader: 'ts-loader',
-            options: {configFile: __dirname + '/tsconfig.json'},
+            options: {configFile: __dirname + '/src/tsconfig.json'},
           }]
         },
       ],
@@ -56,11 +56,11 @@ module.exports = [
       modules: [__dirname, 'node_modules'],
       extensions: ['.ts', '.js', '.json'],
       plugins: [
-        new TsconfigPathsPlugin({configFile: __dirname + '/tsconfig.json'}),
+        new TsconfigPathsPlugin({configFile: __dirname + '/src/tsconfig.json'}),
       ],
     },
     output: {
-      path: __dirname + '/out/src/renderer',
+      path: __dirname + '/out/renderer',
       filename: 'preload.bundled.js',
     },
   },
@@ -68,7 +68,7 @@ module.exports = [
     mode: 'development',
     target: 'electron-renderer',
     context: __dirname,
-    entry: './src/renderer/renderer.ts',
+    entry: './src/core/renderer/renderer.ts',
     devtool: 'source-map',
     module: {
       rules: [
@@ -77,7 +77,7 @@ module.exports = [
           include: /src/,
           use: [{
             loader: 'ts-loader',
-            options: {configFile: __dirname + '/tsconfig.json'},
+            options: {configFile: __dirname + '/src/tsconfig.json'},
           }]
         },
         {
@@ -90,21 +90,21 @@ module.exports = [
       modules: [__dirname, 'node_modules'],
       extensions: ['.ts', '.js', '.json'],
       plugins: [
-        new TsconfigPathsPlugin({configFile: __dirname + '/tsconfig.json'}),
+        new TsconfigPathsPlugin({configFile: __dirname + '/src/tsconfig.json'}),
       ],
     },
     output: {
-      path: __dirname + '/out/src/renderer',
+      path: __dirname + '/out/renderer',
       filename: 'renderer.bundled.js',
     },
     plugins: [
       new HtmlWebpackPlugin({
-        template: 'src/renderer/index.html',
+        template: 'src/core/renderer/index.html',
         filename: 'index.html',
         // inject: 'body',
       }),
       new HtmlWebpackPlugin({
-        template: 'src/renderer/splash.html',
+        template: 'src/core/renderer/splash.html',
         filename: 'splash.html',
         // inject: 'body',
       }),

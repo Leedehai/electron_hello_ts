@@ -8,9 +8,9 @@
 // Command 'npm start' runs this app (configured in package.json's 'scripts'
 // field), or simply command 'electron .'.
 
+import {WindowStateKeeper} from 'core/main/window-state';
 import {app, BrowserWindow, ipcMain, IpcMainInvokeEvent, nativeTheme} from 'electron';
 import path from 'path';
-import {WindowStateKeeper} from 'src/main/window-state';
 
 function createWindow() {
   // Try loading a previous window state stored on file.
@@ -47,6 +47,7 @@ function createWindow() {
       nativeWindowOpen: true,
 
       // Below are best practices for security: renderer may run untrusted code.
+      sandbox: true,
       nodeIntegration: false,
       contextIsolation: true,
     }

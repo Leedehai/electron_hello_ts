@@ -2,7 +2,7 @@
   "name": "getting-started-ts",
   "version": "0.0.1",
   "description": "Getting started, with Typescript",
-  "main": "./out/src/main/main.bundled.js",
+  "main": "./out/main/main.bundled.js",
   "private": true,
   "scripts": {
     "build": "webpack --config ./webpack.config.js",
