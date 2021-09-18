@@ -4,6 +4,7 @@
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
+const path = require('path');
 
 module.exports = [
   {
@@ -18,16 +19,19 @@ module.exports = [
           include: /src/,
           use: [{
             loader: 'ts-loader',
-            options: {configFile: __dirname + '/src/tsconfig.json'},
+            options: {
+              configFile: path.resolve(__dirname, 'src', 'tsconfig.json'),
+            },
           }]
         },
       ],
     },
     resolve: {
-      modules: [__dirname, 'node_modules'],
+      modules: [path.resolve(__dirname, 'src'), 'node_modules'],
       extensions: ['.ts', '.js', '.json'],
       plugins: [
-        new TsconfigPathsPlugin({configFile: __dirname + '/src/tsconfig.json'}),
+        new TsconfigPathsPlugin(
+            {configFile: path.resolve(__dirname, 'src', 'tsconfig.json')}),
       ],
     },
     output: {
@@ -47,16 +51,19 @@ module.exports = [
           include: /src/,
           use: [{
             loader: 'ts-loader',
-            options: {configFile: __dirname + '/src/tsconfig.json'},
+            options: {
+              configFile: path.resolve(__dirname, 'src', 'tsconfig.json'),
+            },
           }]
         },
       ],
     },
     resolve: {
-      modules: [__dirname, 'node_modules'],
+      modules: [path.resolve(__dirname, 'src'), 'node_modules'],
       extensions: ['.ts', '.js', '.json'],
       plugins: [
-        new TsconfigPathsPlugin({configFile: __dirname + '/src/tsconfig.json'}),
+        new TsconfigPathsPlugin(
+            {configFile: path.resolve(__dirname, 'src', 'tsconfig.json')}),
       ],
     },
     output: {
@@ -77,7 +84,9 @@ module.exports = [
           include: /src/,
           use: [{
             loader: 'ts-loader',
-            options: {configFile: __dirname + '/src/tsconfig.json'},
+            options: {
+              configFile: path.resolve(__dirname, 'src', 'tsconfig.json'),
+            },
           }]
         },
         {
@@ -87,10 +96,11 @@ module.exports = [
       ],
     },
     resolve: {
-      modules: [__dirname, 'node_modules'],
+      modules: [path.resolve(__dirname, 'src'), 'node_modules'],
       extensions: ['.ts', '.js', '.json'],
       plugins: [
-        new TsconfigPathsPlugin({configFile: __dirname + '/src/tsconfig.json'}),
+        new TsconfigPathsPlugin(
+            {configFile: path.resolve(__dirname, 'src', 'tsconfig.json')}),
       ],
     },
     output: {
