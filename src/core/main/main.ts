@@ -8,7 +8,7 @@
 // Command 'npm start' runs this app (configured in package.json's 'scripts'
 // field), or simply command 'electron .'.
 
-import {WindowStateKeeper} from 'core/main/window-state';
+import {WindowStateKeeper} from 'core/main/window_state';
 import {app, BrowserWindow, ipcMain, IpcMainInvokeEvent, nativeTheme} from 'electron';
 import path from 'path';
 
