@@ -4,6 +4,8 @@
 // "Client-side" script requested from index.html.
 
 import 'core/renderer/styles.css';
+import {ThemeSource} from 'core/renderer/lib';
+
 
 document.addEventListener('DOMContentLoaded', () => {
   const elementWindowId = document.querySelector<HTMLElement>('#window-id');
@@ -21,7 +23,8 @@ document.addEventListener('DOMContentLoaded', () => {
     elementToggleDarkMode.addEventListener('click', async () => {
       const isDarkMode = await window.darkMode.set('toggle');
       if (elementThemeSource) {
-        elementThemeSource.innerHTML = isDarkMode ? 'Dark' : 'Light';
+        elementThemeSource.innerHTML =
+            isDarkMode ? ThemeSource.DARK : ThemeSource.LIGHT;
       }
     });
   }
@@ -32,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
     elementResetThemeToSystem.addEventListener('click', async () => {
       await window.darkMode?.set('system');
       if (elementThemeSource) {
-        elementThemeSource.innerHTML = 'System';
+        elementThemeSource.innerHTML = ThemeSource.SYSTEM;
       }
     });
   }

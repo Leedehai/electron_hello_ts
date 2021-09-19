@@ -8,7 +8,6 @@ Node 14+
 
 ```sh
 npm install
-npm start
 ```
 
 ## Demonstrated features:
@@ -25,7 +24,14 @@ npm start
 ## Testing
 
 ```sh
-npx jasmine-ts --config=jasmine.json  # Add --filter=[describe() name] to filter
+# Add --filter=[describe() name] to filter
+npx jasmine-ts --project=src/tsconfig.json --config=jasmine.json
+```
+
+## Running
+
+```sh
+npm start
 ```
 
 ## List licenses of direct dependencies used in production:
